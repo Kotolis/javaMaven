@@ -147,9 +147,9 @@ public class Main {
                 }
             }
             if (request.equals("doEx")) {
-                Workbook storeBook = new XSSFWorkbook();
-                FileOutputStream exelDoc = new FileOutputStream(new File("./result.xlsx"));
-                Sheet sheet = storeBook.createSheet("items");
+                Workbook store = new XSSFWorkbook();
+                FileOutputStream doc = new FileOutputStream(new File("./result.xlsx"));
+                Sheet sheet = store.createSheet("items");
                 for (int i = 0; i < storage.size(); i++) {
                     if (storage.get(i) != null) {
                         Row rowI = sheet.createRow(i);
@@ -158,12 +158,12 @@ public class Main {
                     }
                 }
                 try {
-                    storeBook.write(exelDoc);
+                    store.write(doc);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 try {
-                    exelDoc.close();
+                    doc.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
